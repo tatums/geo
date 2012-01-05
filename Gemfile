@@ -11,7 +11,7 @@ gem 'kaminari'
 gem "zurb-foundation"
 gem 'bcrypt-ruby'
 gem 'heroku'
-
+gem "geocoder"
 
 # Gems used only for assets and not required
 # in production environments by default.
