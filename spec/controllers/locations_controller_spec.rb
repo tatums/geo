@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LocationController do
+describe LocationsController do
 
   describe "GET 'index'" do
     it "returns http success" do

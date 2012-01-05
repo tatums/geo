@@ -1,5 +1,5 @@
 PrettyQuick::Application.routes.draw do
-  get "location/index"
+  get "locations/index"
 
   resources :tasks
 

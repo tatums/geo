@@ -15,6 +15,7 @@
     <article>
        <p>Finding your location: <span id="status">checking...</span></p>
     </article>
+    
 <script>
 function success(position) {
   var s = document.querySelector('#status');
@@ -66,6 +67,9 @@ if (navigator.geolocation) {
 }
 
 </script>
+
+
+<%= yield %>
 
     <footer>
       <!-- <a href="/">HTML5 demos</a>/<a id="built" href="http://twitter.com/rem">@rem built this</a>/<a href="#view-source">view source</a> -->
