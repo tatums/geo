@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105031900) do
+ActiveRecord::Schema.define(:version => 20120107175754) do
+
+  create_table "merchants", :force => true do |t|
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state",      :limit => 4
+    t.string   "zip",        :limit => 15
+    t.string   "phone",      :limit => 15
+    t.float    "longitude"
+    t.float    "latitude"
+    t.boolean  "gmaps"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "title"
+    t.string   "type"
+    t.decimal  "price",       :precision => 8, :scale => 2
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer  "merchant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", :force => true do |t|
     t.boolean  "completed"

@@ -1,8 +1,17 @@
 PrettyQuick::Application.routes.draw do
+  resources :services
+
+  resources :merchants
+
   get "locations/index"
 
-  resources :tasks
-
+  resources :tasks, :locations
+  
+  #post 'locations/:id/new' => 'locations#new', :as => :post_cordinates
+  #get 'locations/:id/new' => 'locations#new', :as => :post_cordinates
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

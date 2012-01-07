@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @merchant.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @merchant.full_address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @merchant.phone %>
+</p>
+<p>
+  <b>Cordinates:</b>
+  Long <%= @merchant.longitude %> | Lat <%= @merchant.latitude %>
+</p>
+
+<%= link_to 'Edit', edit_merchant_path(@merchant) %> |
+<%= link_to 'Back', merchants_path %>
+
+
+<%= gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @json } }) %>
+
+<%# gmaps(:markers => {:data => @json, :options => { :raw => '{ animation: google.maps.Animation.BOUNCE }' } },
+          :map_options => { :raw => '{ disableDefaultUI: true, scrollwheel: false }' }) %>
