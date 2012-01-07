@@ -8,11 +8,12 @@ gem 'rails', '3.1.3'
 gem 'pg'
 gem 'jquery-rails'
 gem 'kaminari'
-gem "zurb-foundation"
+gem 'zurb-foundation'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'heroku'
 gem "geocoder"
 gem 'gmaps4rails'
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,6 @@
 class Merchant < ActiveRecord::Base
   has_many :services
+  belongs_to :user
   
   acts_as_gmappable  
   geocoded_by :full_address
@@ -13,5 +14,13 @@ class Merchant < ActiveRecord::Base
   #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
     "#{self.street}, #{self.city}, #{self.state} #{self.zip}"
   end
+  
+  
+  # def is_user_authorized_merchant(user)
+  #   if self.user_id == user.id
+  #     return true
+  #   end
+  # end
+  
   
 end

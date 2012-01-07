@@ -47,8 +47,7 @@ class MerchantsController < ApplicationController
     end
   end
 
-  # PUT /merchants/1
-  # PUT /merchants/1.json
+
   def update
     @merchant = Merchant.find(params[:id])
 
@@ -63,8 +62,7 @@ class MerchantsController < ApplicationController
     end
   end
 
-  # DELETE /merchants/1
-  # DELETE /merchants/1.json
+
   def destroy
     @merchant = Merchant.find(params[:id])
     @merchant.destroy

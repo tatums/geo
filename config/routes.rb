@@ -17,11 +17,9 @@ PrettyQuick::Application.routes.draw do
 
   resources :tasks, :locations
   
-  #post 'locations/:id/new' => 'locations#new', :as => :post_cordinates
-  #get 'locations/:id/new' => 'locations#new', :as => :post_cordinates
+  root :to => 'merchants#index'
   
-  
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -71,7 +69,6 @@ PrettyQuick::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'locations#index'
 
   # See how all your routes lay out with "rake routes"
 
