@@ -1,5 +1,6 @@
 class MerchantsController < ApplicationController
-
+  before_filter :require_user
+  
   def index
     @merchants = Merchant.all
     respond_to do |format|

@@ -1,7 +1,17 @@
 PrettyQuick::Application.routes.draw do
-  resources :services
+  
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "login" => "sessions#new", :as => "login"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "logout" => "sessions#destroy", :as => "logout"
 
-  resources :merchants
+  get "sign_up" => "users#new", :as => "sign_up"
+  resources :users
+  resources :sessions
+  
+  resources :merchants do 
+    resources :services, :shallow => true
+  end
 
   get "locations/index"
 

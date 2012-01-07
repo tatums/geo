@@ -9,7 +9,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'kaminari'
 gem "zurb-foundation"
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'heroku'
 gem "geocoder"
 gem 'gmaps4rails'
@@ -38,5 +38,5 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+#gem 'ruby-debug19', :require => 'ruby-debug'
 
