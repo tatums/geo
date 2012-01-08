@@ -1,5 +1,8 @@
 PrettyQuick::Application.routes.draw do
   
+  get "service_categories" => "static_pages#categories", :as => "service_categories"
+
+
   get "log_in" => "sessions#new", :as => "log_in"
   get "login" => "sessions#new", :as => "login"
   get "log_out" => "sessions#destroy", :as => "log_out"
