@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.select :category, Service::TYPES %>
+    <%= f.select :category, Service::CATEGORIES %>
     <%# f.collection_select :category, Service::TYPES, :to_s, :humanize %>
     <%# f.select :category, options_for_select(Service::TYPES, :humanize) %>
     <%# f.text_field :category %>
