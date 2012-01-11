@@ -23,7 +23,11 @@
 <%= link_to 'Back', merchants_path %>
 
 
-<%= gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @json } }) %>
+<%= link_to "Add Service", new_merchant_service_path(@merchant) %>
+
+<%# gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @json } }) %>
+
+
 
 <%# gmaps(:markers => {:data => @json, :options => { :raw => '{ animation: google.maps.Animation.BOUNCE }' } },
           :map_options => { :raw => '{ disableDefaultUI: true, scrollwheel: false }' }) %>

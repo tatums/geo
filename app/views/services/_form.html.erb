@@ -1,4 +1,4 @@
-<%= form_for(@service) do |f| %>
+<%= form_for([@merchant, @service]) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
@@ -16,8 +16,11 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :category %><br />
+    <%= f.select :category, Service::TYPES %>
+    <%# f.collection_select :category, Service::TYPES, :to_s, :humanize %>
+    <%# f.select :category, options_for_select(Service::TYPES, :humanize) %>
+    <%# f.text_field :category %>
   </div>
   <div class="field">
     <%= f.label :price %><br />
@@ -25,6 +28,7 @@
   </div>
   <div class="field">
     <%= f.label :start_at %><br />
+    <%# f.text_field :start_at, :class => "datepicker" %>
     <%= f.datetime_select :start_at %>
   </div>
   <div class="field">

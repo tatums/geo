@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107230831) do
+ActiveRecord::Schema.define(:version => 20120108202059) do
 
   create_table "merchants", :force => true do |t|
     t.string   "name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20120107230831) do
 
   create_table "services", :force => true do |t|
     t.string   "title"
-    t.string   "type"
+    t.string   "category"
     t.decimal  "price",       :precision => 8, :scale => 2
     t.datetime "start_at"
     t.datetime "end_at"

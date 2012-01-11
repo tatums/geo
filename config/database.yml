@@ -45,13 +45,13 @@ test:
   encoding: unicode
   database: pretty_quick_test
   pool: 5
-  username: pretty_quick
-  password:
+  # username: pretty_quick
+  # password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: pretty_quick_production
   pool: 5
-  username: pretty_quick
-  password:
+  # username: pretty_quick
+  # password:

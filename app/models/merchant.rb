@@ -5,9 +5,14 @@ class Merchant < ActiveRecord::Base
   acts_as_gmappable  
   geocoded_by :full_address
   after_validation :geocode, :if => :city_changed? 
+  validates :name, :presence => true
   
   def full_address
     street + ", " + city + "," + state + zip
+  end
+  
+  def formatted_address
+    "<p><em>#{name}</em><br />#{street}<br />#{city}, #{state} #{zip}"
   end
   
   def gmaps4rails_address
@@ -15,6 +20,10 @@ class Merchant < ActiveRecord::Base
     "#{self.street}, #{self.city}, #{self.state} #{self.zip}"
   end
   
+  def gmaps4rails_infowindow
+    formatted_address
+    # add here whatever html content you desire, it will be displayed when users clicks on the marker
+  end
   
   # def is_user_authorized_merchant(user)
   #   if self.user_id == user.id

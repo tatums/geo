@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= link_to @service.merchant.name, @service.merchant %></h2>
+
 <p>
   <b>Title:</b>
   <%= @service.title %>
@@ -7,7 +9,7 @@
 
 <p>
   <b>Type:</b>
-  <%= @service.type %>
+  <%= @service.category %>
 </p>
 
 <p>
@@ -25,6 +27,7 @@
   <%= @service.end_at %>
 </p>
 
+<%= gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @marker } }) %>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<%# link_to 'Edit', edit_service_path(@service) %> 
+<%# link_to 'Back', services_path %>

@@ -1,3 +1,7 @@
+<style>
+  .yellow { border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px; }
+</style>
+
 <h1>Listing services</h1>
 
 <table>
@@ -5,6 +9,7 @@
     <th>Title</th>
     <th>Type</th>
     <th>Price</th>
+    <th>Merchant</th>
     <th>Start at</th>
     <th>End at</th>
     <th></th>
@@ -15,10 +20,11 @@
 <% @services.each do |service| %>
   <tr>
     <td><%= service.title %></td>
-    <td><%= service.type %></td>
+    <td><%= service.category %></td>
     <td><%= service.price %></td>
-    <td><%= service.start_at %></td>
-    <td><%= service.end_at %></td>
+    <td><%= service.merchant.name %>
+    <td><%= service.start_at.strftime("%m/%d/%Y  %I:%M %p") %></td>
+    <td><%= service.end_at.strftime("%m/%d/%Y  %I:%M %p") %></td>
     <td><%= link_to 'Show', service %></td>
     <td><%= link_to 'Edit', edit_service_path(service) %></td>
     <td><%= link_to 'Destroy', service, confirm: 'Are you sure?', method: :delete %></td>
@@ -27,5 +33,7 @@
 </table>
 
 <br />
-
-<%= link_to 'New Service', new_service_path %>
+<%= gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
+<%# gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @merchants.uniq.to_gmaps4rails } }) %>
+<%# pry %>
+<%# link_to 'New Service', new_service_path %>
