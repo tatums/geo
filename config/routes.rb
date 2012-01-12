@@ -2,6 +2,9 @@ PrettyQuick::Application.routes.draw do
   
   get "service_categories" => "static_pages#categories", :as => "service_categories"
   get "services" => "services#index", :as => "services"
+  get "services/:category" => "services#index", :as => "services_category"
+
+  #match 'servies/:id' => 'catalog#view'
 
   get "log_in" => "sessions#new", :as => "log_in"
   get "login" => "sessions#new", :as => "login"
@@ -21,7 +24,6 @@ PrettyQuick::Application.routes.draw do
   resources :tasks, :locations
   
   root :to => 'services#index'
-  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
