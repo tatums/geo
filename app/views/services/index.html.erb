@@ -1,8 +1,4 @@
-<style>
-  .yellow { border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px; }
-</style>
-
-<h1>Listing services</h1>
+<%= gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
 
 <table>
   <tr>
@@ -18,7 +14,7 @@
   <tr>
     <td><%= link_to service.title, service %></td>
     <td><%= link_to service.category, service %></td>
-    <td><%= link_to service.price, service %></td>
+    <td><%= link_to number_to_currency(service.price), service %></td>
     <td><%= link_to service.merchant.name, service %>
     <td><%= link_to service.start_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
     <td><%= link_to service.end_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
@@ -27,7 +23,3 @@
 </table>
 
 <br />
-<%= gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
-<%# gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @merchants.uniq.to_gmaps4rails } }) %>
-<%# pry %>
-<%# link_to 'New Service', new_service_path %>
