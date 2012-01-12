@@ -1,7 +1,11 @@
 class ServicesController < ApplicationController
 
   def index
-    @services = Service.all(:include => :merchant)
+    if params[:category]
+      @services = Service.where(:category => params[:category]).all(:include => :merchant)
+    else
+      @services = Service.all(:include => :merchant)
+    end
     @merchants = @services.collect {|s| s.merchant}
     respond_to do |format|
       format.html # index.html.erb
