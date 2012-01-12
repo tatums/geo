@@ -5,53 +5,38 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
-<style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-</style>
-  
 </head>
 <body>
 <div class="topbar">
-  <div class="topbar-inner">
-    <div class="container-fluid">
+  <div class="fill">
+    <div class="container">
       <%= link_to "Pretty Quick", root_url, :class => "brand"  %>
       <ul class="nav">
-          <li><%= link_to "Services", services_path %></li>
+          <li class="active"><%= link_to "Services", services_path %></li>
           <li><%= link_to "Merchants", merchants_path %></li>
       </ul>
-      <p class="pull-right">
       <% if current_user %>
+        <p class="pull-right">
           Logged in as <%= current_user.email %>
           <%= link_to "Log out", log_out_path %>
+        </p>
       <% else %>            
         <%= form_tag sessions_path, :class=> "pull-right" do %>
-            <%= text_field_tag :email, params[:email], :class => "input-small", :placeholder => "Username" %>
-            <%= password_field_tag :password, params[:password], :class => "input-small", :placeholder => "Password" %>
+            <%= text_field_tag :email, params[:email], :class=>"input-small", :placeholder=>"Username" %>
+            <%= password_field_tag :password,params[:password], :class=>"input-small", :placeholder=>"Password" %>
             <%= submit_tag "Sign in"%>
         <% end %>
       <% end %>    
-      </p>
-      
-    </div>   
+    </div>
   </div>
-</div>      
+</div>
 
 <div class="container-fluid">
 
-    <div class="sidebar">
-      <%= render 'layouts/sidebar' %>
-    </div>
-                        
-    <div class="content">
-      <%= yield %>
-    </div>
+  <%= yield %>  
   
+  <%= yield :scripts %>
 </div>
 
-
-<%= yield :scripts %>
 </body>
-</html>
+</html>  

@@ -5,12 +5,11 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
-<style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-</style>
+  <style type="text/css">
+        body {
+          padding-top: 60px;
+        }
+  </style>
   
 </head>
 <body>
@@ -19,7 +18,7 @@
     <div class="container-fluid">
       <%= link_to "Pretty Quick", root_url, :class => "brand"  %>
       <ul class="nav">
-          <li><%= link_to "Services", services_path %></li>
+          <li class="active"><%= link_to "Services", services_path %></li>
           <li><%= link_to "Merchants", merchants_path %></li>
       </ul>
       <p class="pull-right">
@@ -41,9 +40,9 @@
 
 <div class="container-fluid">
 
-    <div class="sidebar">
-      <%= render 'layouts/sidebar' %>
-    </div>
+  <div class="sidebar">
+    <%= render 'layouts/sidebar' %>
+  </div>
                         
     <div class="content">
       <%= yield %>
