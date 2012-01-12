@@ -78,8 +78,7 @@
       <div class="container-fluid">
         <%= link_to "Pretty Quick", root_url, :class => "brand"  %>
         <ul class="nav">
-            <li><%= link_to "Services", services_path %></li>
-            <li><%= link_to "Merchants", merchants_path %></li>
+          <%= render "layouts/navigation" %>
         </ul>
         <p class="pull-right">
         <% if current_user %>
