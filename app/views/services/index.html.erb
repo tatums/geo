@@ -12,22 +12,16 @@
     <th>Merchant</th>
     <th>Start at</th>
     <th>End at</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @services.each do |service| %>
   <tr>
-    <td><%= service.title %></td>
-    <td><%= service.category %></td>
-    <td><%= service.price %></td>
-    <td><%= service.merchant.name %>
-    <td><%= service.start_at.strftime("%m/%d/%Y  %I:%M %p") %></td>
-    <td><%= service.end_at.strftime("%m/%d/%Y  %I:%M %p") %></td>
-    <td><%= link_to 'Show', service %></td>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to service.title, service %></td>
+    <td><%= link_to service.category, service %></td>
+    <td><%= link_to service.price, service %></td>
+    <td><%= link_to service.merchant.name, service %>
+    <td><%= link_to service.start_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
+    <td><%= link_to service.end_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
   </tr>
 <% end %>
 </table>

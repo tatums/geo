@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     has_many :merchants
     
     attr_accessor :password
-    attr_accessible :email, :password, :password_confirmation
+    attr_accessible :email, :password, :password_confirmation, :role
     before_save :encrypt_password
     
     validates_confirmation_of :password
