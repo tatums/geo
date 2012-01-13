@@ -2,7 +2,8 @@ PrettyQuick::Application.routes.draw do
   
   get "service_categories" => "static_pages#categories", :as => "service_categories"
   get "services" => "services#index", :as => "services"
-  get "services/:category" => "services#index", :as => "services_category"
+  
+  get "service/:category" => "services#index", :as => "services_category"
 
   #match 'servies/:id' => 'catalog#view'
 

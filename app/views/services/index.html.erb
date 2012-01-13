@@ -1,15 +1,25 @@
-<%= gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
+<%# gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
+<script>
+  $(document).ready(function() { 
+//          $("#services").tablesorter(); 
+          $("table") 
+              .tablesorter() 
+              .tablesorterPager({container: $("#pager")});
+  } );
+</script>
 
-<table class="zebra-striped bordered-table">
-  <tr>
-    <th>Title</th>
-    <th>Type</th>
-    <th>Price</th>
-    <th>Merchant</th>
-    <th>Start at</th>
-    <th>End at</th>
-  </tr>
 
+<table id="services" class="zebra-striped bordered-table tablesorter">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Merchant</th>
+      <th>Start at</th>
+      <th>End at</th>
+    </tr>
+  </thead>
 <% @services.each do |service| %>
   <tr>
     <td><%= link_to service.title, service %></td>
@@ -22,4 +32,21 @@
 <% end %>
 </table>
 
+
+
 <br />
+<!-- <form>
+    <span class="first">First</span>
+    <span class="prev">Prev</span>
+      <input type="text" class="pagedisplay">
+    <span class="next">Next</span>
+    <span class="last">Last</span>
+    
+    <select class="pagesize">
+      <option selected="selected" value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+    </select>
+    
+  </form> -->
