@@ -1,7 +1,24 @@
 <div class="well">
-  <h5>
-    Categories
-  </h5>
-  <%= render 'layouts/categories' %>
-  
+  <h5>Location</h5>
+  <%= form_tag sessions_path do %>
+    <%= text_field_tag :address, params[:address], :placeholder => 'address', :class => 'span3' %>
+  <% end %>
+  <p class="cordinates">Cordinates: </p>
+  <p class="address">Full Address: </p>
+
 </div>
+
+<div class="well">
+  <h5>Categories</h5>
+  <ul class="unstyled">
+    <li><%= link_to 'All', services_path %></li>
+    <li><%= link_to 'Facial', services_category_path(:category => 'facial') %></li>
+    <li><%= link_to 'Hair Cut', services_category_path(:category => 'hair_cut') %></li>
+    <li><%= link_to 'Hair Style', services_category_path(:category => 'hair_style') %></li>
+    <li><%= link_to 'Hair Color', services_category_path(:category => 'hair_color')  %></li>
+    <li><%= link_to 'Massage', services_category_path(:category => 'massage')  %></li>
+    <li><%= link_to 'Nail Service', services_category_path(:category => 'nail_service')  %></li>
+    <li><%= link_to 'Hair Removal', services_category_path(:category => 'hair_removal')  %></li>
+  </ul>
+</div>
+

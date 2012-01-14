@@ -2,18 +2,15 @@
 <html>
 <head>
   <title>PrettyQuick</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-
-<style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-</style>
-  
+  <%= render 'layouts/head' %> 
 </head>
 <body>
+  <style type="text/css">
+        body {
+          padding-top: 60px;
+        }
+  </style>
+
 <div class="topbar">
   <div class="topbar-inner">
     <div class="container-fluid">
