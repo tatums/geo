@@ -1,6 +1,7 @@
 PrettyQuick::Application.routes.draw do
   
   get "service_categories" => "static_pages#categories", :as => "service_categories"
+  get "find_location" => "static_pages#home", :as => "find_location"
   get "services" => "services#index", :as => "services"
   
   get "service/:category" => "services#index", :as => "services_category"

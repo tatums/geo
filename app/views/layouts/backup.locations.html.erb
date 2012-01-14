@@ -5,7 +5,6 @@
 <%= stylesheet_link_tag    "application" %>
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <style type="text/css">
     body {
@@ -17,39 +16,56 @@
 <body>
 
 <script>
-
-    var geocoder = new google.maps.Geocoder();
-
     function success(position) {
+      //var s = document.querySelector('#status');
+
+      // if (s.className == 'success') {
+      //   // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+      //   return;
+      // }
+
+      // s.innerHTML = "found you!";
+      // s.className = 'success';
+      // 
+      // var mapcanvas = document.createElement('div');
+      // mapcanvas.id = 'mapcanvas';
+      // mapcanvas.style.height = '400px';
+      // mapcanvas.style.width = '560px';
+      // 
+      // document.querySelector('article').appendChild(mapcanvas);
+      // 
+      // var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      // var myOptions = {
+      //   zoom: 15,
+      //   center: latlng,
+      //   mapTypeControl: false,
+      //   navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+      //   mapTypeId: google.maps.MapTypeId.ROADMAP
+      // };
+      // var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+      // 
+      // var marker = new google.maps.Marker({
+      //     position: latlng, 
+      //     map: map, 
+      //     title:"You are here!"
+      // 
+      // });
+
+      //var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var lat = position.coords.latitude 
       var lng = position.coords.longitude
+      //google.maps.Geocoder
 
-      //for (key in position.coords) {alert(key)};
-
-
-//********************************************************
-      //REVERSE GEO
-      geocoder.geocode({'latLng': new google.maps.LatLng(position.coords.latitude, position.coords.longitude)}, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          if (results[0]) {
-            $('#address').append(results[0].formatted_address);  
-            
-            //document.body.innerHTML += 'google.maps.Geocoder ' + results[0].formatted_address;
-          }
-        } else {
-          console.log(arguments);
-          //document.body.innerHTML += 'Geocoder failed due to: ' + status;
-        }
-      });
-
-//********************************************************
-
-      $('#cordinates').append(lat, ", ", lng);  
+      $('#address').append(lat, lng);  
       console.log(lat, lng);
     }
 
     function error(msg) {
-       console.log(arguments);
+      var s = document.querySelector('#status');
+      s.innerHTML = typeof msg == 'string' ? msg : "failed";
+      s.className = 'fail';
+
+      // console.log(arguments);
     }
 
     if (navigator.geolocation) {
@@ -58,7 +74,10 @@
       error('not supported');
     }
 
-</script>
+
+
+
+    </script>
 
 
         
@@ -96,8 +115,10 @@
         
         <section id="wrapper">
           <meta name="viewport" content="width=620" />
+
+            <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+
             <article>
-              <p id="cordinates">Cordinates: </p>
               <p id="address">Address: </p>
             </article>
         </section>

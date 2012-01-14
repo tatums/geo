@@ -25,6 +25,10 @@ class Merchant < ActiveRecord::Base
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
   end
   
+  def cordinates
+    latitude.to_s + "," + longitude.to_s 
+  end
+  
   # def is_user_authorized_merchant(user)
   #   if self.user_id == user.id
   #     return true
