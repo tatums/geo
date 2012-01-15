@@ -54,28 +54,21 @@ $(document).ready(function(){
       <th>Start at</th>
       <th>End at</th>
     </tr>
-  </thead>
-  <%= render @services, :locals => { :list => true } %>
-  
-  <%# render :partial => 'services' %>
+  </thead>    
+  <%= render @services, :locals => { :list => true } %>  
 </table>
 
-<p id="pager" class="pager">
-	<form>
-		<img src="/assets/first.png" class="first"/>
-		<img src="/assets/prev.png" class="prev"/>
-		<input type="text" class="pagedisplay"/>
-		<img src="/assets/next.png" class="next"/>
-		<img src="/assets/last.png" class="last"/>
-		<select class="pagesize">
-			<option value="10">10 per page</option>
-			<option value="20">20 per page</option>
-			<option value="50">50 per page</option>
-
-		</select>
-	</form>
-</p>
-<%= debug session[:latlng] %>
-<p>
-  <%= session.inspect %>
-</p>
+<span id="pager" class="pager">
+ 	<form>
+ 		<img src="/assets/first.png" class="first"/>
+ 		<img src="/assets/prev.png" class="prev"/>
+ 		<input type="text" class="pagedisplay"/>
+ 		<img src="/assets/next.png" class="next"/>
+ 		<img src="/assets/last.png" class="last"/>
+ 		<select class="pagesize">
+ 			<option value="10">10 per page</option>
+ 			<option value="20">20 per page</option>
+ 			<option value="50">50 per page</option>
+ 		</select>
+ 	</form>
+ </span>

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :store_ip_location
   helper_method :current_user
 
   private
@@ -26,4 +27,7 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end    
     
+    def store_ip_location
+      session[:ip_location] = request.location
+    end
 end

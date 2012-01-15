@@ -1,12 +1,11 @@
 class ServicesController < ApplicationController
 
   def index
-    @location = session[:latlng]
-    @merchants = Merchant.near(@location.coordinates)
-    
-    @x_services = @merchants.collect {|m| m.services }
-
-    pry
+    if session[:latlng]
+      @location = session[:latlng]
+      @merchants = Merchant.near(@location.coordinates)
+      @x_services = @merchants.collect {|m| m.services }
+    end
     if params[:category]
       @services = Service.where(:category => params[:category]).all(:include => :merchant)
     else
