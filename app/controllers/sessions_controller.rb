@@ -12,9 +12,16 @@ class SessionsController < ApplicationController
       render "new"
     end
   end
+  
   def destroy
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"
   end
+  
+  def set_location
+    session[:latlng] = Geocoder.search(params[:address]).first
+    redirect_to services_path
+  end
+  
   
 end

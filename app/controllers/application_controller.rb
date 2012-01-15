@@ -24,15 +24,6 @@ class ApplicationController < ActionController::Base
       flash[:notice] = message
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
-    end
-    
-    def current_cart 
-      Cart.find(session[:cart_id])
-      rescue ActiveRecord::RecordNotFound 
-      cart = Cart.create 
-      session[:cart_id] = cart.id
-      cart
-    end
-    
+    end    
     
 end

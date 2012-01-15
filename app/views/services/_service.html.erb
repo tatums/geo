@@ -3,6 +3,7 @@
     <td><%= link_to service.category, service %></td>
     <td><%= link_to number_to_currency(service.price), service %></td>
     <td><%= link_to service.merchant.name, service %>
+    <td></td>  
     <td><%= link_to service.start_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
     <td><%= link_to service.end_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
 <% end %>

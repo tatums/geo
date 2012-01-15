@@ -1,6 +1,12 @@
 class ServicesController < ApplicationController
 
   def index
+    @location = session[:latlng]
+    @merchants = Merchant.near(@location.coordinates)
+    
+    @x_services = @merchants.collect {|m| m.services }
+
+    pry
     if params[:category]
       @services = Service.where(:category => params[:category]).all(:include => :merchant)
     else
@@ -9,7 +15,7 @@ class ServicesController < ApplicationController
     @merchants = @services.collect {|s| s.merchant}
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @services }
+      #format.json { render json: @services }
     end
   end
 
@@ -77,4 +83,5 @@ class ServicesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
 end

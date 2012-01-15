@@ -12,7 +12,7 @@
       geocoder.geocode({'latLng': new google.maps.LatLng(position.coords.latitude, position.coords.longitude)}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[0]) {
-            $('.address').append(results[0].formatted_address);  
+            //$('.address').append(results[0].formatted_address);  
 						$('input#address').val(results[0].formatted_address);
             //console.log(arguments);
             //document.body.innerHTML += 'google.maps.Geocoder ' + results[0].formatted_address;

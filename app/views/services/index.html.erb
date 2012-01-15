@@ -1,4 +1,8 @@
 <%# gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
+<%# gmaps("markers" => { "data" => @merchants.uniq.to_gmaps4rails} ) %>
+
+<%# gmaps("markers" => { "data" => session[:location] }) %>
+
 <script>
   $(document).ready(function() { 
 //          $("#services").tablesorter(); 
@@ -46,6 +50,7 @@ $(document).ready(function(){
       <th>Type</th>
       <th>Price</th>
       <th>Merchant</th>
+      <th>Distance</th>
       <th>Start at</th>
       <th>End at</th>
     </tr>
@@ -55,7 +60,7 @@ $(document).ready(function(){
   <%# render :partial => 'services' %>
 </table>
 
-<span id="pager" class="pager">
+<p id="pager" class="pager">
 	<form>
 		<img src="/assets/first.png" class="first"/>
 		<img src="/assets/prev.png" class="prev"/>
@@ -69,5 +74,8 @@ $(document).ready(function(){
 
 		</select>
 	</form>
-</span>
-
+</p>
+<%= debug session[:latlng] %>
+<p>
+  <%= session.inspect %>
+</p>
