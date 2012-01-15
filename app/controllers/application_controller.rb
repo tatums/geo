@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     end    
     
     def store_ip_location
-      session[:ip_location] = request.location
+      #session[:ip_location] = request.location
+      if params[:address] 
+        session[:latlng] = Geocoder.search(params[:address]).first
+        redirect_to services_path
+      end
     end
 end

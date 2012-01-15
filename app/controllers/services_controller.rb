@@ -1,17 +1,25 @@
 class ServicesController < ApplicationController
 
   def index
-    if session[:latlng]
-      @location = session[:latlng]
-      @merchants = Merchant.near(@location.coordinates)
-      @x_services = @merchants.collect {|m| m.services }
-    end
-    if params[:category]
-      @services = Service.where(:category => params[:category]).all(:include => :merchant)
-    else
-      @services = Service.all(:include => :merchant)
-    end
-    @merchants = @services.collect {|s| s.merchant}
+    @services = Service.all(:include => :merchant)
+
+    # if params[:category]
+    #   @services = Service.where(:category => params[:category]).all(:include => :merchant)
+    # else
+    #   @services = Service.all(:include => :merchant)
+    # end
+        
+    
+    # if session[:latlng]
+    #    @merchants = Merchant.near(session[:latlng].coordinates).all(:include => :services)
+    #    
+    #    #@services.collect {|s| s.merchant}
+    #  else 
+    #    @merchants = @services.collect {|m| m.merchant}
+    #  end
+    
+    
+   # pry
     respond_to do |format|
       format.html # index.html.erb
       #format.json { render json: @services }

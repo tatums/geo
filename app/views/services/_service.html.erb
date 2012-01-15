@@ -3,7 +3,8 @@
     <td><%= link_to service.category, service %></td>
     <td><%= link_to number_to_currency(service.price), service %></td>
     <td><%= link_to service.merchant.name, service %>
-    <td></td>  
+    <td><%= link_to service.merchant.full_address, service %>
+    <td><%= session[:latlng] ? sprintf("%.2f", service.merchant.distance_from(session[:latlng].coordinates) ) : " - " %> Miles</td>  
     <td><%= link_to service.start_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
     <td><%= link_to service.end_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
 <% end %>
