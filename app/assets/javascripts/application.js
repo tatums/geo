@@ -7,4 +7,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require geolocation
 //= require_tree .
