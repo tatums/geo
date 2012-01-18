@@ -5,7 +5,7 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+#gem 'pg'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'bcrypt-ruby', :require => 'bcrypt'
@@ -13,7 +13,10 @@ gem 'heroku'
 gem "geocoder"
 gem 'gmaps4rails'
 gem 'cancan'
+gem 'redis'
 
+gem "mongoid"
+gem "bson_ext"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

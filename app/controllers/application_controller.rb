@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :store_ip_location
+  #before_filter :store_ip_location
   helper_method :current_user
 
   private
@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
     
     def store_ip_location
       #session[:ip_location] = request.location
-      if params[:address] 
-        session[:latlng] = Geocoder.search(params[:address]).first
-        redirect_to services_path
-      end
+      # if params[:address] 
+      #   session[:latlng] = Geocoder.search(params[:address]).first
+      #   redirect_to services_path
+      # end
     end
 end

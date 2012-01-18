@@ -1,9 +1,24 @@
-class Merchant < ActiveRecord::Base
+class Merchant
+  include Mongoid::Document
+  
+  field :name
+  field :street
+  field :city
+  field :state
+  field :zip
+  field :phone
+  field :longitude, :type => Float
+  field :latitude, :type => Float
+  field :gmaps, :type => Boolean
+  field :created_at
+  field :updated_at
+  field :user_id, :type => Integer
+  
   has_many :services
   belongs_to :user
   
-  acts_as_gmappable  
-  geocoded_by :full_address
+  #acts_as_gmappable  
+  #geocoded_by :full_address
   after_validation :geocode, :if => :city_changed? 
   validates :name, :presence => true
   

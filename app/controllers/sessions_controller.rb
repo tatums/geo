@@ -19,7 +19,9 @@ class SessionsController < ApplicationController
   end
   
   def set_location
-    session[:latlng] = Geocoder.search(params[:address]).first
+    if Geocoder.search(params[:address]).first
+      session[:latlng] = Geocoder.search(params[:address]).first
+    end
     redirect_to services_path
   end
   

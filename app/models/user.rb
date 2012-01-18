@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User
     has_many :merchants
     
     attr_accessor :password
