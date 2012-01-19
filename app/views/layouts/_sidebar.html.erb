@@ -25,8 +25,16 @@
 
 <div>
   <p>
-    <% if session %>
-      <%= debug session %>
-    <% end %>
+  <% if session %>
+    <%= debug session %>
+  <% end %>    
   </p> 
+</div>
+
+<div>
+  <p>
+  <% if @marker %>
+    <%= debug @marker %>
+  <% end %>
+  </p>
 </div>

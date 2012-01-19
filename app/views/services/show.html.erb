@@ -27,7 +27,13 @@
   <%= @service.end_at %>
 </p>
 
-<%= gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @marker } }) %>
+<%# gmaps4rails(@marker) %>
 
+<%# gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @marker } }) %>
+
+<%= gmaps(:markers => {:data => @marker, :options => { :raw => '{ animation: google.maps.Animation.BOUNCE }' } },
+          :map_options => {"zoom" => 14, "auto_zoom" => false }) %>
+          
+          
 <%# link_to 'Edit', edit_service_path(@service) %> 
 <%# link_to 'Back', services_path %>

@@ -11,7 +11,7 @@ class MerchantsController < ApplicationController
 
   def show
     @merchant = Merchant.find(params[:id])
-    @json = @merchant.to_gmaps4rails
+    #@json = @merchant.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @merchant }

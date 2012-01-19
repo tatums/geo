@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   
   def set_location
     if Geocoder.search(params[:address]).first
-      session[:latlng] = Geocoder.search(params[:address]).first
+      session[:latlng] = Geocoder.search(params[:address]).first.coordinates
     end
     redirect_to services_path
   end

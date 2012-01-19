@@ -16,13 +16,11 @@
 </p>
 <p>
   <b>Cordinates:</b>
-  Long <%= @merchant.longitude %> | Lat <%= @merchant.latitude %>
+   <%= @merchant.coordinates %> 
 </p>
 
 <%= link_to 'Edit', edit_merchant_path(@merchant) %> |
-<%= link_to 'Back', merchants_path %>
-
-
+<%= link_to 'Back', merchants_path %> |
 <%= link_to "Add Service", new_merchant_service_path(@merchant) %>
 
 <%# gmaps({ "map_options" => { "zoom" => 14, "auto_zoom" => false}, "markers" => { "data" => @json } }) %>

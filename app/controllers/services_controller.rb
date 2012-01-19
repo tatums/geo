@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 
   def index
-    @services = Service.all(:include => :merchant)
+    @services = Service.all
 
     # if params[:category]
     #   @services = Service.where(:category => params[:category]).all(:include => :merchant)
