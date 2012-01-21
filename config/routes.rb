@@ -12,9 +12,15 @@ PrettyQuick::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "logout" => "sessions#destroy", :as => "logout"
+
+
   post 'set_location' => "sessions#set_location", :as => 'set_location'
+  post 'find_me' => "sessions#find_me", :as => 'find_me'
+  post 'search_for_location' => "sessions#search_for_location", :as => 'search_for_location'
+
   
   get "sign_up" => "users#new", :as => "sign_up"
+
   resources :users
   resources :sessions
   

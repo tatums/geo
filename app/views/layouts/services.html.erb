@@ -11,9 +11,17 @@
         }
   </style>
 
-<%# unless session[:coordinates] %>  
-  <%= javascript_include_tag 'geolocation' %>
-<%# end %> 
+
+<% unless session[:coordinates] %>  
+  <script>
+  $(function(){ 
+    navigator.geolocation.getCurrentPosition(function(pos){
+      $.post('/set_location',{latitude: pos.coords.latitude, longitude: pos.coords.longitude}) 
+    });      
+  });
+</script>  
+  <%# javascript_include_tag 'geolocation' %>
+<% end %> 
     
 <div class="topbar">
   <div class="topbar-inner">
@@ -39,8 +47,6 @@
                         
     <div class="content">
       <%= yield %>
-       <%# session[:latlng] %></span>
-      <!-- <p>Session:<%= session.inspect %></p> -->
     </div>
   
 </div>

@@ -1,0 +1,6 @@
+$(function(){ 
+  navigator.geolocation.getCurrentPosition(function(pos){
+    $.post('/set_location',{latitude: pos.coords.latitude, longitude: pos.coords.longitude}) 
+  });      
+});
+
