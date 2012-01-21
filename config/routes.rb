@@ -16,6 +16,7 @@ PrettyQuick::Application.routes.draw do
 
   post 'set_location' => "sessions#set_location", :as => 'set_location'
   post 'find_me' => "sessions#find_me", :as => 'find_me'
+  post 'forget_me' => "sessions#forget_me", :as => 'forget_me'
   post 'search_for_location' => "sessions#search_for_location", :as => 'search_for_location'
 
   

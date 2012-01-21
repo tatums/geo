@@ -3,45 +3,16 @@
 
 <%# gmaps("markers" => { "data" => session[:location] }) %>
 
-<script>
+ <!-- <script>
   $(document).ready(function() { 
 //          $("#services").tablesorter(); 
           $("table") 
               .tablesorter() 
-              .tablesorterPager({container: $("#pager")});
+              //.tablesorterPager({container: $("#pager")});
   } );
 </script>
 
-<script>
-$(document).ready(function(){  
-  
-    //when a link in the filters div is clicked...  
-    $('#filters a').click(function(e){  
-  
-        //prevent the default behaviour of the link  
-        e.preventDefault();  
-  
-        //get the id of the clicked link(which is equal to classes of our content  
-        var filter = $(this).attr('id');  
-  
-        //show all the list items(this is needed to get the hidden ones shown)  
-        $('#services tr').show();  
-  
-        /*using the :not attribute and the filter class in it we are selecting 
-        only the list items that don't have that class and hide them '*/  
-        $('#services tr:not(.' + filter + ')').hide();  
-  
-    });  
-  
-});  
-
-</script>
-
-
-<div id='filters'>
-  <a href='#'>All</a> 
-  <a href='#' id='hair_cut'>Hair Cut</a>
-</div>  
+ -->
 
 <table id="services" class="zebra-striped condensed-table bordered-table tablesorter">
   <thead>
@@ -55,21 +26,36 @@ $(document).ready(function(){
       <th>Start at</th>
       <th>End at</th>
     </tr>
-  </thead>    
-  <%= render @services, :locals => { :list => true } %>  
+  </thead>  
+  <tbody class="services-body">  
+    <!-- <% @services.each do |service| %>
+      <tr>
+        <td><%= link_to service.title, service %></td>
+        <td><%= link_to service.category, service %></td>
+        <td><%= link_to number_to_currency(service.price), service %></td>
+        <td><%= link_to service.merchant.name, service %>
+        <td><%= link_to service.full_address, service %>
+        <td><%= session[:coordinates] ? service.distance_from(session[:coordinates]).to_i : " - "  %> Miles</td>
+        <td><%= link_to service.start_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
+        <td><%= link_to service.end_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
+      </td>  
+    <% end %> -->
+    <%= render @services, :locals => { :list => true } %>  
+    
+  </tbody>
 </table>
 
-<span id="pager" class="pager">
- 	<form>
- 		<img src="/assets/first.png" class="first"/>
- 		<img src="/assets/prev.png" class="prev"/>
- 		<input type="text" class="pagedisplay"/>
- 		<img src="/assets/next.png" class="next"/>
- 		<img src="/assets/last.png" class="last"/>
- 		<select class="pagesize">
- 			<option value="10">10 per page</option>
- 			<option value="20">20 per page</option>
- 			<option value="50">50 per page</option>
- 		</select>
- 	</form>
- </span>
+<!-- <span id="pager" class="pager">
+  <form>
+    <img src="/assets/first.png" class="first"/>
+    <img src="/assets/prev.png" class="prev"/>
+    <input type="text" class="pagedisplay"/>
+    <img src="/assets/next.png" class="next"/>
+    <img src="/assets/last.png" class="last"/>
+    <select class="pagesize">
+      <option value="10">10 per page</option>
+      <option value="20">20 per page</option>
+      <option value="50">50 per page</option>
+    </select>
+  </form>
+ </span> -->

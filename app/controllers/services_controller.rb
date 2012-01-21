@@ -1,7 +1,9 @@
 class ServicesController < ApplicationController
-
+  
+  helper_method :sort_column, :sort_direction
+  
   def index
-    @services = Service.all
+    
 
     # if params[:category]
     #   @services = Service.where(:category => params[:category]).all(:include => :merchant)
@@ -9,14 +11,11 @@ class ServicesController < ApplicationController
     #   @services = Service.all(:include => :merchant)
     # end
         
-    
-    # if session[:latlng]
-    #    @merchants = Merchant.near(session[:latlng].coordinates).all(:include => :services)
-    #    
-    #    #@services.collect {|s| s.merchant}
-    #  else 
-    #    @merchants = @services.collect {|m| m.merchant}
-    #  end
+    if session[:coordinates]
+       @services = Service.near(session[:coordinates], 20 )
+    else 
+       @services = Service.all.order(params[:order])
+    end
     
     
    # pry
@@ -90,5 +89,14 @@ class ServicesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+# private  
+#   def sort_column
+#     Service.column_names.include?(params[:sort]) ? params[:sort] : "name"
+#   end
+# 
+#   def sort_direction
+#     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+#   end
   
 end

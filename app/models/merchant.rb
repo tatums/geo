@@ -12,10 +12,10 @@ class Merchant
   field :zip
   field :phone
   field :coordinates, :type => Array
-  #field :longitude, :type => Float
-  #field :latitude, :type => Float
   field :gmaps, :type => Boolean
   field :user_id, :type => Integer
+  #field :longitude, :type => Float
+  #field :latitude, :type => Float
   
   
   validates :name, :presence => true
@@ -43,8 +43,6 @@ class Merchant
   geocoded_by :full_address
   
   after_validation :geocode, :if => :city_changed? 
-  
-  
   
   def full_address
     street + ", " + city + "," + state + zip

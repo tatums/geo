@@ -1,2 +1,6 @@
 $('p.coordinates').html("<%= escape_javascript(session[:coordinates].to_s) %>");
 $('p.debug').html("<%= escape_javascript(debug session) %>");
+
+//relace table results
+$('.services-body').html("<%= escape_javascript(render(@services)) %>");
+$('input#address').val("<%= session[:coordinates] %>");
