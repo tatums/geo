@@ -17,11 +17,12 @@ test:
 
 
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  uri: <%= ENV['MONGOHQ_URL'] %>
+  # host: <%= ENV['MONGOID_HOST'] %>
+  # port: <%= ENV['MONGOID_PORT'] %>
+  # username: <%= ENV['MONGOID_USERNAME'] %>
+  # password: <%= ENV['MONGOID_PASSWORD'] %>
+  # database: <%= ENV['MONGOID_DATABASE'] %>
   # slaves:
   #   - host: slave1.local
   #     port: 27018
