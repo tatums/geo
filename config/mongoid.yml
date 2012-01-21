@@ -8,13 +8,28 @@ test:
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  host: ds029817.mongolab.com
+  port: 29817
+  username: 61828B9C07A8919DC20AECDCF6E6AFC4406740FBF8E371CC65A4CF7D443C9262
+  password: C7659DA9C9762E8B02D51EB4F6D81254B45E0F9AC4E77EBE5B036A39B6790D78
+  database: heroku_app2345348
+
+
+# production:
+#   host: <%= ENV['MONGOID_HOST'] %>
+#   port: <%= ENV['MONGOID_PORT'] %>
+#   username: <%= ENV['MONGOID_USERNAME'] %>
+#   password: <%= ENV['MONGOID_PASSWORD'] %>
+#   database: <%= ENV['MONGOID_DATABASE'] %>
   # slaves:
   #   - host: slave1.local
   #     port: 27018
   #   - host: slave2.local
   #     port: 27019
+
+#mongodb://<user>:<password>@ds029817.mongolab.com:29817/heroku_app2345348
+#heroku_app2345348
+#61828B9C07A8919DC20AECDCF6E6AFC4406740FBF8E371CC65A4CF7D443C9262
+
+#pass
+#C7659DA9C9762E8B02D51EB4F6D81254B45E0F9AC4E77EBE5B036A39B6790D78
