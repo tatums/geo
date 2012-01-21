@@ -1,6 +1,7 @@
 class Service 
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::MultiParameterAttributes
   include Geocoder::Model::Mongoid
   
   field :title
