@@ -11,9 +11,9 @@
         }
   </style>
 
-<!-- <% unless session[:latlng] %>  
-  <%# javascript_include_tag 'geolocation' %>
-<% end %> -->
+<%# unless session[:coordinates] %>  
+  <%= javascript_include_tag 'geolocation' %>
+<%# end %> 
     
 <div class="topbar">
   <div class="topbar-inner">

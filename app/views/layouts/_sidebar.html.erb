@@ -1,12 +1,12 @@
 <div class="well">
   <h5>Location</h5>
-  <%= form_tag set_location_path do %>
+  <%= form_tag set_location_path, :remote => true do %>
     <%= text_field_tag :address, params[:address], :placeholder => 'address', :class => 'span3' %>
     <p class="field">
       <%= submit_tag 'Submit', :class => 'btn primary' %>
     </p>  
   <% end %>
-  <p class="cordinates">Cordinates: </p>
+  <p class="coordinates">Cordinates: </p>
 </div>
 
 <div class="well">

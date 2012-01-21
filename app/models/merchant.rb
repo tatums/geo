@@ -11,7 +11,7 @@ class Merchant
   field :state
   field :zip
   field :phone
-  field :coordinates, :type => Array, :geo => true
+  field :coordinates, :type => Array
   #field :longitude, :type => Float
   #field :latitude, :type => Float
   field :gmaps, :type => Boolean
@@ -65,7 +65,7 @@ class Merchant
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
   end
   
-  # def cordinates
+  # def coordinates
   #   latitude.to_s + "," + longitude.to_s 
   # end
   

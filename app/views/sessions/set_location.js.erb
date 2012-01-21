@@ -1,0 +1,3 @@
+alert("<%= escape_javascript(session[:coordinates].to_s) %>");
+
+$('.coordinates').replace("<%= escape_javascript(session[:lat].to_s) %>");

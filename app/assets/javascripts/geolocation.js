@@ -14,6 +14,23 @@
           if (results[0]) {
             //$('.address').append(results[0].formatted_address);  
 						$('input#address').val(results[0].formatted_address);
+						
+						// 	var request =	$.ajax({
+						// 			url: "set_location.html",
+						// 			type: "POST",
+						// 			data: {results[0].formatted_address},
+						// 			dataType: "html",
+						// 		  context: document.body
+						// 			
+						// 		});
+						// 
+						// request.fail(function(jqXHR, textStatus) {
+						//   alert( "Request failed: " + textStatus );
+						// });
+
+					//	alert("Ehmmmm");
+
+
             //console.log(arguments);
             //document.body.innerHTML += 'google.maps.Geocoder ' + results[0].formatted_address;
           }
@@ -25,9 +42,16 @@
 
 //********************************************************
 
-      $('.cordinates').append(lat, ", ", lng);  
+      $('.coordinates').append(lat, ", ", lng);  
       console.log(lat, lng);
     }
+
+
+		
+		// request.fail(function(jqXHR, textStatus) {
+		//   alert( "Request failed: " + textStatus );
+		// });
+
 
     function error(msg) {
        console.log(arguments);
@@ -38,3 +62,5 @@
     } else {
       error('not supported');
     }
+
+
