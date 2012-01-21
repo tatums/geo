@@ -9,7 +9,7 @@ class Service
   field :start_at, :type  => DateTime
   field :end_at, :type  => DateTime
   field :coordinates, :type => Array
-  
+  index "coordinates"
   
   geocoded_by :full_address
   after_validation :geocode
