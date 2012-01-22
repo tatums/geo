@@ -1,0 +1,4 @@
+
+$('.services-body').html("<%= escape_javascript(render(@services)) %>");
+
+$('.pagination').html('<%= escape_javascript(paginate(@services, :remote => true).to_s) %>');

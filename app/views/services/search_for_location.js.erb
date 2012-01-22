@@ -1,0 +1,9 @@
+$('p.coordinates').html("<%= escape_javascript(session[:coordinates].to_s) %>");
+$('p.debug').html("<%= escape_javascript(debug session) %>");
+
+//relace table results
+$('.services-body').html("<%= escape_javascript(render(@services)) %>");
+
+//replace pagination data
+$('.pagination').html('<%= escape_javascript(paginate(@services,:params => {:controller => 'services', :action => 'index'}, :remote => true).to_s) %>');
+//alert('<%= escape_javascript(paginate(@services, :params => {:controller => 'services', :action => 'index'},:remote => true).to_s) %>');

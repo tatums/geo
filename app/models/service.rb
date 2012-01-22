@@ -32,6 +32,12 @@ class Service
     
   belongs_to :merchant
   
+  def self.column_names
+    self.fields.collect { |field| field[0] }
+  end
+  
+  paginates_per 15
+  
   CATEGORIES = ['facial', 'hair_cut', 'hair_style', 'hair_color', 'massage', 'nail_service', 'hair_removal']
   
 end

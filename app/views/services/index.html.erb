@@ -10,13 +10,14 @@
               .tablesorter() 
               //.tablesorterPager({container: $("#pager")});
   } );
-</script>
+</script> -->
 
- -->
+
 
 <table id="services" class="zebra-striped condensed-table bordered-table tablesorter">
   <thead>
     <tr>
+      <!-- <th><%# sortable "title" %></th> -->
       <th>Title</th>
       <th>Type</th>
       <th>Price</th>
@@ -28,22 +29,12 @@
     </tr>
   </thead>  
   <tbody class="services-body">  
-    <!-- <% @services.each do |service| %>
-      <tr>
-        <td><%= link_to service.title, service %></td>
-        <td><%= link_to service.category, service %></td>
-        <td><%= link_to number_to_currency(service.price), service %></td>
-        <td><%= link_to service.merchant.name, service %>
-        <td><%= link_to service.full_address, service %>
-        <td><%= session[:coordinates] ? service.distance_from(session[:coordinates]).to_i : " - "  %> Miles</td>
-        <td><%= link_to service.start_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
-        <td><%= link_to service.end_at.strftime("%m/%d/%Y  %I:%M %p"), service %></td>
-      </td>  
-    <% end %> -->
-    <%= render @services, :locals => { :list => true } %>  
-    
+    <%= render @services, :locals => { :list => true } %>      
   </tbody>
 </table>
+
+<%= paginate @services, :remote => true %>
+
 
 <!-- <span id="pager" class="pager">
   <form>
