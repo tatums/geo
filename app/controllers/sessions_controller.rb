@@ -22,11 +22,11 @@ class SessionsController < ApplicationController
     location = Geocoder.search("#{params[:latitude].to_f}, #{params[:longitude].to_f}").first
     if location
       session[:coordinates] = location.coordinates
-    end    
+    end
     @services = Service.near(location.coordinates, 20).page(params[:page])
     respond_to do |format|
       format.js
-    end        
+    end
   end
   
   # def search_for_location
@@ -37,22 +37,21 @@ class SessionsController < ApplicationController
   #   @services = Service.near(session[:coordinates],20).page(params[:page])
   #   respond_to do |format|
   #     format.js
-  #   end            
-  # end  
+  #   end
+  # end
   
   def find_me
     session[:coordinates] = nil
     respond_to do |format|
       format.js
-    end        
-  end  
-    
+    end
+  end
+  
   def forget_me
     session[:coordinates] = nil
     respond_to do |format|
       format.js
-    end        
-  end  
-  
-  
+    end
+  end
+    
 end
