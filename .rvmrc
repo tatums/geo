@@ -1,2 +1,2 @@
-rvm use 1.9.3@pretty_quick
+rvm use 1.9.3@geo --create
 rvm current
