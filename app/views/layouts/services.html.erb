@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PrettyQuick</title>
-  <%= render 'layouts/head' %> 
+  <title>Geo</title>
+  <%= render 'layouts/head' %>
 </head>
 <body>
   <style type="text/css">
@@ -12,21 +12,21 @@
   </style>
 
 
-<% unless session[:coordinates] %>  
+<% unless session[:coordinates] %>
   <script>
-  $(function(){ 
+  $(function(){
     navigator.geolocation.getCurrentPosition(function(pos){
-      $.post('/set_location',{latitude: pos.coords.latitude, longitude: pos.coords.longitude}) 
-    });      
+      $.post('/set_location',{latitude: pos.coords.latitude, longitude: pos.coords.longitude})
+    });
   });
-</script>  
+</script>
   <%# javascript_include_tag 'geolocation' %>
-<% end %> 
-    
+<% end %>
+
 <div class="topbar">
   <div class="topbar-inner">
     <div class="container-fluid">
-      <%= link_to 'Pretty Quick', root_url, :class => 'brand'  %>
+      <%= link_to 'Geo', root_url, :class => 'brand'  %>
       <ul class="nav">
         <%= render 'layouts/navigation' %>
       </ul>
@@ -35,29 +35,29 @@
         <% if current_user %>
             Logged in as <%= current_user.email %>
             <%= link_to "Log out", log_out_path %>
-        <% else %>            
+        <% else %>
           <%= form_tag sessions_path, :class=> "pull-right" do %>
               <%= text_field_tag :email, params[:email], :class => "input-small", :placeholder => "Username" %>
               <%= password_field_tag :password, params[:password], :class => "input-small", :placeholder => "Password" %>
               <%= submit_tag "Sign in"%>
           <% end %>
-        <% end %>    
+        <% end %>
       </p>
-      
-    </div>   
+
+    </div>
   </div>
-</div>      
+</div>
 
 <div class="container-fluid">
 
   <div class="sidebar">
     <%= render 'layouts/sidebar' %>
   </div>
-                        
+
     <div class="content">
       <%= yield %>
     </div>
-  
+
 </div>
 
 <%= yield :scripts %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>PrettyQuick</title>
+<title>Geo</title>
 <%= stylesheet_link_tag    "application" %>
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
@@ -20,20 +20,20 @@
       //var s = document.querySelector('#status');
 
       // if (s.className == 'success') {
-      //   // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+      //   // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back
       //   return;
       // }
 
       // s.innerHTML = "found you!";
       // s.className = 'success';
-      // 
+      //
       // var mapcanvas = document.createElement('div');
       // mapcanvas.id = 'mapcanvas';
       // mapcanvas.style.height = '400px';
       // mapcanvas.style.width = '560px';
-      // 
+      //
       // document.querySelector('article').appendChild(mapcanvas);
-      // 
+      //
       // var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       // var myOptions = {
       //   zoom: 15,
@@ -43,20 +43,20 @@
       //   mapTypeId: google.maps.MapTypeId.ROADMAP
       // };
       // var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-      // 
+      //
       // var marker = new google.maps.Marker({
-      //     position: latlng, 
-      //     map: map, 
+      //     position: latlng,
+      //     map: map,
       //     title:"You are here!"
-      // 
+      //
       // });
 
       //var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      var lat = position.coords.latitude 
+      var lat = position.coords.latitude
       var lng = position.coords.longitude
       //google.maps.Geocoder
 
-      $('#address').append(lat, lng);  
+      $('#address').append(lat, lng);
       console.log(lat, lng);
     }
 
@@ -80,11 +80,11 @@
     </script>
 
 
-        
+
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container-fluid">
-        <%= link_to "Pretty Quick", root_url, :class => "brand"  %>
+        <%= link_to "Geo", root_url, :class => "brand"  %>
         <ul class="nav">
           <%= render "layouts/navigation" %>
         </ul>
@@ -92,18 +92,18 @@
         <% if current_user %>
             Logged in as <%= current_user.email %>
             <%= link_to "Log out", log_out_path %>
-        <% else %>            
+        <% else %>
           <%= form_tag sessions_path, :class=> "pull-right" do %>
               <%= text_field_tag :email, params[:email], :class => "input-small", :placeholder => "Username" %>
               <%= password_field_tag :password, params[:password], :class => "input-small", :placeholder => "Password" %>
               <%= submit_tag "Sign in"%>
           <% end %>
-        <% end %>    
+        <% end %>
         </p>
 
-      </div>   
+      </div>
     </div>
-  </div>      
+  </div>
 
   <div class="container-fluid">
 
@@ -112,7 +112,7 @@
       </div>
 
       <div class="content">
-        
+
         <section id="wrapper">
           <meta name="viewport" content="width=620" />
 
@@ -122,7 +122,7 @@
               <p id="address">Address: </p>
             </article>
         </section>
-        
+
       </div>
 
   </div>

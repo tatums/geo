@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-PrettyQuick::Application.load_tasks
+Geo::Application.load_tasks

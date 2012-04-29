@@ -1,4 +1,4 @@
-PrettyQuick::Application.configure do
+Geo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -27,8 +27,8 @@ PrettyQuick::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  
+
+
   silence_warnings do
     begin
       require 'pry'
@@ -36,6 +36,6 @@ PrettyQuick::Application.configure do
     rescue LoadError
     end
   end
-  
-  
+
+
 end

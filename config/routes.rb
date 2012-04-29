@@ -1,9 +1,9 @@
-PrettyQuick::Application.routes.draw do
-  
+Geo::Application.routes.draw do
+
   get "service_categories" => "static_pages#categories", :as => "service_categories"
   get "find_location" => "static_pages#home", :as => "find_location"
   get "services" => "services#index", :as => "services"
-  
+
   get "service/:category" => "services#index", :as => "services_category"
 
   #match 'servies/:id' => 'catalog#view'
@@ -19,20 +19,20 @@ PrettyQuick::Application.routes.draw do
   post 'forget_me' => "sessions#forget_me", :as => 'forget_me'
   post 'search_for_location' => "services#search_for_location", :as => 'search_for_location'
 
-  
+
   get "sign_up" => "users#new", :as => "sign_up"
 
   resources :users
   resources :sessions
-  
-  resources :merchants do 
+
+  resources :merchants do
     resources :services, :shallow => true
   end
 
   get "locations/index"
 
   resources :tasks, :locations
-  
+
   root :to => 'services#index'
 
   # The priority is based upon order of creation:
