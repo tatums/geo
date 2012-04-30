@@ -12,12 +12,11 @@ class LocationsController < ApplicationController
   # end
 
   def index
-    if params[:address]
-      location = Geocoder.search(params[:address]).first
-    else
+    if params[:address].blank?
       location = Geocoder.search('Chicago').first
+    else
+      location = Geocoder.search(params[:address]).first
     end
-
     session[:coordinates] = location.coordinates
     gon.longitude = session[:coordinates].last if session[:coordinates]
     gon.latitude = session[:coordinates].first if session[:coordinates]
