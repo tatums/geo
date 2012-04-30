@@ -1,14 +1,21 @@
 development:
   host: localhost
-  database: pretty_quick_development
+  database: geo_development
 
 test:
   host: localhost
-  database: pretty_quick_test
-
+  database: geo_test
 
 production:
-  uri: <%= ENV['MONGOLAB_URI'] %>
+  host: localhost
+  database: geo_production
+
+
+#
+# production:
+#   uri: <%= ENV['MONGOLAB_URI'] %>
+
+
 
   # host: <%= ENV['MONGOID_HOST'] %>
   # port: <%= ENV['MONGOID_PORT'] %>
