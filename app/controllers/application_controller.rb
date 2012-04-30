@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
-   
+
     def require_user
       unless current_user
         store_location
@@ -25,11 +25,13 @@ class ApplicationController < ActionController::Base
       flash[:notice] = message
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
-    end    
-    
+    end
+
+
+
     def store_ip_location
       #session[:ip_location] = request.location
-      # if params[:address] 
+      # if params[:address]
       #   session[:latlng] = Geocoder.search(params[:address]).first
       #   redirect_to services_path
       # end

@@ -50,7 +50,10 @@ GEM
     execjs (1.2.13)
       multi_json (~> 1.0)
     geocoder (1.1.0)
-    gmaps4rails (1.4.2)
+    gmaps4rails (1.4.8)
+      json
+    gon (3.0.2)
+      actionpack (>= 2.3.0)
       json
     heroku (2.18.1)
       launchy (>= 0.3.2)
@@ -62,7 +65,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.4)
+    json (1.7.0)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -168,6 +171,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   geocoder
   gmaps4rails
+  gon
   heroku
   jquery-rails
   kaminari

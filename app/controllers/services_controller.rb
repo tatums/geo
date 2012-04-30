@@ -1,34 +1,19 @@
 class ServicesController < ApplicationController
-  
+
   helper_method :sort_column, :sort_direction
-  
+
   def index
-    
-    # if params[:category]
-    #   @services = Service.where(:category => params[:category]).all(:include => :merchant)
-    # else
-    #   @services = Service.all(:include => :merchant)
-    # end
-    
-    
-    # if session[:coordinates]
-    #    @services = Service.near(session[:coordinates],20).order(sort_column + " " + sort_direction).page(params[:page])
-    # else 
-    #    @services = Service.all.order(params[:order]).order(sort_column + " " + sort_direction).page(params[:page])
-    # end
-        
-        
+
     if session[:coordinates]
        @services = Service.near(session[:coordinates],20).page(params[:page])
-    else 
+    else
        @services = Service.all.order(params[:order]).page(params[:page])
     end
-    
+
     @users = User.page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.js
-      #format.json { render json: @services }
     end
   end
 
@@ -36,7 +21,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @marker = @service.merchant.to_gmaps4rails
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @service }
@@ -96,7 +81,7 @@ class ServicesController < ApplicationController
       format.json { head :ok }
     end
   end
-  
+
   def search_for_location
     location = Geocoder.search(params[:address]).first
     if location
@@ -105,15 +90,15 @@ class ServicesController < ApplicationController
     @services = Service.near(session[:coordinates],20).page(params[:page])
     respond_to do |format|
       format.js
-    end            
-  end  
-  
-  
-  
+    end
+  end
+
+
+
   private
 
 
-    
+
     def sort_column
       Service.column_names.include?(params[:sort]) ? params[:sort] : "title"
     end
@@ -121,14 +106,6 @@ class ServicesController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
-  
-# private  
-#   def sort_column
-#     Service.column_names.include?(params[:sort]) ? params[:sort] : "name"
-#   end
-# 
-#   def sort_direction
-#     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-#   end
-  
+
+
 end
