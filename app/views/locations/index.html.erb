@@ -17,8 +17,9 @@
     // Try HTML5 geolocation
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-
         //var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
+        //gon.markers.forEach(function(marker) {console.log(marker)});
 
        if (gon)
          {var pos = new google.maps.LatLng(gon.latitude,gon.longitude);}
@@ -29,8 +30,19 @@
         var marker = new google.maps.Marker({
                     position: pos,
                     map: map
-
                     });
+
+
+          gon.markers.forEach(function(gonPos) {
+               var pos = new google.maps.LatLng(gonPos[0], gonPos[1]);
+               new google.maps.Marker({
+                           position: pos,
+                           map: map
+                           });
+
+             });
+
+
         var infowindow = new google.maps.InfoWindow({
           map: map,
           position: pos
@@ -38,6 +50,7 @@
           });
 
         map.setCenter(pos);
+
       }, function() {
         handleNoGeolocation(true);
       });
@@ -46,6 +59,7 @@
       handleNoGeolocation(false);
     }
   }
+
 
   function handleNoGeolocation(errorFlag) {
     if (errorFlag) {
